@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta name="description" content="Book expert digital consultations including website audits, SEO strategy, Google Ads readiness, e-commerce setup, and growth roadmaps.">
+    <meta name="keywords" content="website consultation Kenya, digital strategy Nairobi, SEO audit, Google Ads consultation, e-commerce consulting">
+
+    <link rel="icon" href="logo/Untitled_design-removebg-preview.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/consultation.css">
+
+    <title>Consultation Services | Brydex Technologies</title>
+</head>
+<style>
+/*styling about-section*/
+.about-section{
+    padding: 40px;
+    border: 50px;
+}
+.container{
+    display: flex;
+    gap: 50px;
+}
+.top h3{
+    grid-column: 1 / -1;
+    font-size: 2rem;
+    font-weight: 650;
+    text-align: left;       /* align with left buttons */
+    padding-left: 0;        /* optional: same padding as sidebar */
+    margin-bottom: 10px;
+}
+.top h4{
+    grid-column: 1 / -1;
+    font-size: 1.4rem;
+    font-weight: 650;
+    text-align: left;       /* align with left buttons */
+    padding-left: 0;        /* optional: same padding as sidebar */
+    margin-bottom: 10px;
+}
+.top .about-text{
+    font-size: 17px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.image-section{
+    flex: 1;
+    min-width: 510px;
+    padding: 1px;
+}
+.image-section img{
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.393);;
+}
+/* styling mission */
+.mission{
+    padding: 15px 10%;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    background-color: #ffffff;
+}
+.box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 40px;
+}
+.box-content{
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+.box-content h3{
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    padding: 2px 0;
+}
+.box-content p{
+    font-size: 16px;
+    line-height: 20px;
+    color: black;
+    margin-bottom: 20px;
+}
+.box-content .pic{
+    width: 70px;
+    padding: 10px;
+    border-radius: 10px;
+}
+/* department*/
+.services-section {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  padding: 30px;
+}
+.services-section h2 {
+  grid-column: 1 / -1;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;       /* align with left buttons */
+  padding-left: 0;        /* optional: same padding as sidebar */
+}
+.services-section p {
+  grid-column: 1 / -1;
+  font-size: 17px;
+  text-align: left;       /* align with left buttons */
+  padding-left: 0;        /* optional: same padding as sidebar */
+}
+.services-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.dept-btn {
+  position: relative;            /* required for the arrow positioning */
+  padding: 1rem 1rem;         /* keep padding standard */
+  border: none;
+  border-radius: 3px;
+  font-size: 17px;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+}
+/* Active & hover styles */
+.dept-btn.active,
+.dept-btn:hover {
+  color: #0C3BC7;
+}
+.services-content {
+  display: block;
+  flex: 2;
+  min-width: 80px;
+}
+/* Hide all department containers by default */
+.dept-services {
+  display: none;
+  gap: 1.5rem;
+}
+/* Show active department */
+.dept-services.active {
+  display: grid;
+}
+.service-card {
+  padding: 0rem 1rem;
+  display: flex;
+  gap: 50px;
+}
+.dept-services h3{
+    grid-column: 1 / -1;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: left;       /* align with left buttons */
+    padding-left: 0;        /* optional: same padding as sidebar */
+}
+.service-card .pic{
+    flex: 1;
+    min-width: 390px;
+    padding: 1px;
+}
+.service-card img{
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.393);;
+}
+.service-card p{
+    margin-top: px;
+    font-size: 15.8px;
+    text-align: justify;
+}
+/* Arrow outside the button */
+.dept-btn.active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;                 /* attach outside the right edge */
+  margin-left: 1px;           /* small gap between button and arrow */
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid #0C3BC7; /* arrow color */
+}
+.service-card ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+.service-card ul li {
+    display: flex;
+    align-items: flex-start; /* Aligns icon vertically with the text */
+    margin-bottom: 10px;
+}
+.service-card ul li i {
+    color: #000000;
+    margin-right: 0.75rem;
+    font-size: 17px;
+    flex-shrink: 0;
+    line-height: 1.7; /* Important to align the icon properly */
+}
+.service-card ul li span {
+    display: inline-block;  /* Ensures text wraps nicely */
+}
+@media (max-width: 900px) {
+    .services-section {
+        grid-template-columns: 1fr;
+    }
+    .dept-btn.active::after {
+        display: none;  /* optional, hides arrow on mobile */
+    }
+    .service-card{
+            flex-direction: column;
+    }
+    .service-card .pic{
+        flex: 1;
+        min-width: 250px;
+        padding: 10px;        
+    }
+}
+/* ============================= */
+/* CONSULTATION PRICING BLOCK */
+/* ============================= */
+.legal-consent{
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+}
+
+.legal-consent p{
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.legal-consent a{
+    color: #0C3BC7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.legal-consent a:hover{
+    text-decoration: underline;
+}
+.consultation-pricing{
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 4px solid #0C3BC7;
+    background: #f9f9f9;
+}
+
+.consultation-pricing .price{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.consultation-pricing .duration{
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.consultation-pricing .note{
+    font-size: 14px;
+    color: #0C3BC7;
+    margin-bottom: 10px;
+}
+
+.book-btn{
+    display: inline-block;
+    padding: 10px 18px;
+    background: #0C3BC7;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.book-btn:hover{
+    opacity: 0.9;
+}
+
+/* ============================= */
+/* PAYMENT SECTION */
+/* ============================= */
+
+.payment-info{
+    margin: 40px 30px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #eee;
+}
+
+.payment-info h3{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.payment-info p{
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.payment-info .note{
+    color: #0C3BC7;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* ============================= */
+/* BOOKING FORM */
+/* ============================= */
+
+.booking-form{
+    margin: 40px 30px;
+    padding: 25px;
+    background: #f9f9f9;
+    border-left: 4px solid #0C3BC7;
+}
+
+.booking-form h2{
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.booking-form form{
+    display: grid;
+    gap: 12px;
+}
+
+.booking-form input,
+.booking-form select{
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.booking-form button{
+    padding: 12px;
+    background: #0C3BC7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.booking-form button:hover{
+    opacity: 0.9;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px){
+    .payment-info,
+    .booking-form{
+        margin: 20px 15px;
+    }
+    .about-section{
+        padding: 20px;
+        border: 20px;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .image-section{
+        flex: 1;
+        min-width: 300px;
+        padding: 10px;
+    }
+}
+</style>
+<body>
+     <!--scrollbutton-->
+    <div id="progress">
+        <span id="progress-value">&#8593</span>
+    </div>
+    <!--top-footer-->
+    <section class="top-footer">
+        <div class="box">
+            <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <div class="text">
+                    <a href="">+254(0)700 073919</a>
+                </div>
+            <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                <div class="text">
+                    <a href="contact.html">info@brydextechnologies.co.ke</a>
+                </div>
+            <div class="icon"><i class="fa fa-street-view" aria-hidden="true"></i></i></i></div>
+                    <div class="text">
+                        <p>Nairobi, Kenya 00100</p>
+                    </div> 
+            <div class="social-link-list">
+                <a href="https://www.facebook.com/brydextechnologies" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/brydex-technologies-3aa4773bb/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@brydex.technologies" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/brydextechnologies/" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            </div>           
+        </div>
+    </section>
+    <!--navmenus-->
+    <header>
+
+        <img src="logo/Untitled_design-removebg-preview.png" class="logo" >
+
+        <div class="menuToggle"></div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="quote.html">Quote</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li class="consultation"><a href="consultation.html">Book Consultation</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- WhatsApp Chat Button -->
+        <a href="https://wa.me/254700073919?text=Hi%20Brydex%20Technologies,%20I%20need%20help%20with%20my%20website%20or%20online%20growth.%20Can%20you%20assist?" 
+            class="whatsapp-float" 
+            target="_blank">
+
+                <i class="fab fa-whatsapp"></i>
+                <span class="whatsapp-text">Hello👋 Need help with your <br>website or online growth? <br>Chat with us.</span>
+
+        </a>
+    <!--about section-->
+    <section class="about-section">
+        <div class="container">
+            <div class="image-section">
+                <img src="Images/technology-consultancy.png">
+            </div>
+            <div class="content-section">
+                <div class="top">
+                    <h3>Consultation Services</h3>
+                    <h4>Clarity Before You Spend</h4>
+                    <p class="about-text">Our consultation services are designed to give you clarity before 
+                        you invest in your digital growth. If you’re unsure why your website isn’t generating 
+                        inquiries, or you’re planning to run Google Ads or start selling online but don’t know 
+                        if you’re fully prepared, we help you identify the gaps holding your business back. 
+                        <br><br>Through expert, practical guidance tailored to your specific needs, we ensure you 
+                        avoid costly mistakes and build digital systems that actually convert. You’ll walk away with 
+                        a clear, actionable plan not guesswork making this service ideal for SMEs, startups, schools, 
+                        real estate firms, and service-based businesses looking to grow with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--consultation Overview-->
+    <section class="services-section">
+        <h2>What we offer...</h2>
+        <p>This consultation is designed to help you make better decisions. Even if you don’t proceed with us.</p>
+        <!-- LEFT SIDEBAR -->
+        <div class="services-sidebar">
+            <button class="dept-btn active" data-target="audit">Website Audit</button>
+            <button class="dept-btn" data-target="planning">Website Planning</button>
+            <button class="dept-btn" data-target="conversion">Conversion Strategy</button>
+            <button class="dept-btn" data-target="ads">Google Ads Readiness</button>
+            <button class="dept-btn" data-target="ecommerce">E-commerce Setup</button>
+            <button class="dept-btn" data-target="roadmap">Growth Roadmap</button>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="services-content">
+        <!-- Website & Online Presence Audit Consultation -->
+        <div class="dept-services" id="audit">
+            <h3>Website & Online Presence Audit Consultation</h3>
+            <div class="service-card">
+                <div>
+                    <p>If your website isn’t bringing in inquiries, building trust, or showing up on Google, this session helps you understand 
+                    exactly why and what to fix first. We take a deep dive into your website’s layout, structure, and overall user experience, 
+                    including how it performs on mobile (which is critical for the Kenyan market). We also assess your messaging clarity, loading 
+                    speed, basic SEO visibility, and trust elements such as contact information and credibility signals.
+                    <br>By the end of the session, you’ll have a clear understanding of what’s working, what’s holding you back, and the key issues 
+                    affecting your inquiries or engagement. You’ll receive practical, actionable recommendations and honest guidance on whether your 
+                    site needs improvement or a full redesign. This ensures you stop guessing and start fixing what’s actually costing you customers.
+                    </p>
+                </div>
+                <div class="pic">
+                    <img src="Images/e85e799619a25e8c6ef8cd635b5294e8.jpg" alt="">
+                </div>
+            </div>
+            <div class="consultation-pricing">
+                <p class="price">Consultation Fee: <strong>KES 3,000</strong></p>
+                <p class="duration">Duration: 45–60 Minutes</p>
+                <p class="note">💡 Fee is credited if you proceed with a project.</p>
+
+                <a href="#booking-form" class="book-btn">Book Consultation</a>
+            </div>
+        </div>
+        <!-- Website Planning & Structure Consultation -->
+        <div class="dept-services" id="planning">
+            <h3>Website Planning & Structure Consultation</h3>
+            <div class="service-card">
+                <div>
+                    <p>Building a website without a clear plan often leads to something that looks good but fails to deliver results. 
+                    This consultation ensures you get it right from the start. We focus on aligning your website with your business 
+                    goals, whether that’s generating leads, driving sales, increasing bookings, or improving visibility.
+                    <br>Together, we map out the ideal structure of your site, including the right pages, features, and user flow. 
+                    We guide you on essential functionalities such as forms, WhatsApp integration, payment systems, and content 
+                    placement, while also considering future scalability. By the end, you’ll have a clear website structure, 
+                    feature recommendations, and a development roadmap saving you time, money, and the frustration of building 
+                    something that doesn’t work.
+                    </p>
+                </div>
+                <div class="pic">
+                    <img src="Images/pexels-divinetechygirl-1181467.jpg" alt="">
+                </div>
+            </div>
+            <div class="consultation-pricing">
+                <p class="price">Consultation Fee: <strong>KES 3,000</strong></p>
+                <p class="duration">Duration: 45–60 Minutes</p>
+                <p class="note">💡 Fee is credited if you proceed with a project.</p>
+
+                <a href="#booking-form" class="book-btn">Book Consultation</a>
+            </div>
+        </div>
+        <!-- Conversion & Lead Generation Consultation -->
+        <div class="dept-services" id="conversion">
+            <h3>Conversion & Lead Generation Consultation</h3>
+            <div class="service-card">
+                <div>
+                    <p>Getting traffic to your website is only half the job the real goal is turning visitors into inquiries, calls, 
+                    and sales. This session focuses on identifying why your visitors aren’t converting and how to fix it. We analyze 
+                    the full user journey, from the moment someone lands on your site to the point they decide to take action.
+                    <br>We review your call-to-action placement, contact forms, WhatsApp integration, and mobile user behavior, 
+                    while identifying friction points that cause drop-offs. You’ll walk away with a clear understanding of what’s 
+                    stopping conversions, along with practical strategies to optimize lead capture and increase inquiries. The goal 
+                    is simple: transform your website from a static brochure into a high-performing sales tool.
+                    </p>
+                </div>
+                <div class="pic">
+                    <img src="Images/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg" alt="">
+                </div>
+            </div>
+            <div class="consultation-pricing">
+                <p class="price">Consultation Fee: <strong>KES 3,000</strong></p>
+                <p class="duration">Duration: 45–60 Minutes</p>
+                <p class="note">💡 Fee is credited if you proceed with a project.</p>
+
+                <a href="#booking-form" class="book-btn">Book Consultation</a>
+            </div>
+        </div>
+        <!-- Google Ads Readiness & Strategy Consultation -->
+        <div class="dept-services" id="ads">
+            <h3>Google Ads Readiness & Strategy Consultation</h3>
+            <div class="service-card">
+                <div>
+                    <p>Running Google Ads without the right foundation is one of the fastest ways to waste money. This consultation ensures you’re 
+                    fully prepared before spending a single shilling. We evaluate your business goals, target audience, and keyword intent, while 
+                    assessing whether your landing pages are optimized to convert traffic into results.
+                    <br>We also review your conversion tracking setup, budget expectations, and overall campaign strategy. By the end of the session, 
+                    you’ll know whether you’re truly ready to run ads, what needs to be improved, and the best approach to take whether your goal is 
+                    leads or direct sales. This helps you protect your budget and significantly increase your chances of achieving a strong return on investment.
+                    </p>
+                </div>
+                <div class="pic">
+                    <img src="Images/technology-consultancy.png" alt="">
+                </div>
+            </div>
+            <div class="consultation-pricing">
+                <p class="price">Consultation Fee: <strong>KES 3,000</strong></p>
+                <p class="duration">Duration: 45–60 Minutes</p>
+                <p class="note">💡 Fee is credited if you proceed with a project.</p>
+
+                <a href="#booking-form" class="book-btn">Book Consultation</a>
+            </div>
+        </div>
+        <!-- E-commerce & Google Merchant Center Consultation -->
+        <div class="dept-services" id="ecommerce">
+            <h3>E-commerce & Google Merchant Center Consultation</h3>
+            <div class="service-card">
+                <div>
+                    <p>If you’re running an online store or planning to this session prepares you to sell effectively 
+                    and get discovered by ready-to-buy customers on Google. We review your store structure, product setup,
+                    images, descriptions, pricing, and checkout experience to ensure everything is optimized for conversions.
+                    <br>We also assess your readiness for Google Merchant Center, including compliance requirements and product 
+                    feed structure. You’ll receive a clear evaluation of your store’s readiness, along with practical steps to 
+                    improve performance and qualify for Google Shopping visibility. The end result is an eCommerce setup that’s 
+                    not just functional but built to sell and scale.
+                    </p>
+                </div>
+                <div class="pic">
+                    <img src="Images/7f73d14a3a58ab9cb507400743303832.jpg" alt="">
+                </div>
+            </div>
+            <div class="consultation-pricing">
+                <p class="price">Consultation Fee: <strong>KES 3,000</strong></p>
+                <p class="duration">Duration: 45–60 Minutes</p>
+                <p class="note">💡 Fee is credited if you proceed with a project.</p>
+
+                <a href="#booking-form" class="book-btn">Book Consultation</a>
+            </div>
+        </div>
+        <!-- Digital Growth Roadmap Consultation  -->
+        <div class="dept-services" id="roadmap">
+            <h3>Digital Growth Roadmap Consultation </h3>
+            <div class="service-card">
+                <div>
+                    If you’re tired of trying random strategies without clear results, this session gives you a structured path forward. 
+                    We conduct a full review of your digital presence covering your website, marketing efforts, content strategy, and 
+                    growth opportunities.
+                    <br><br>From there, we identify what’s working, what’s not, and where your biggest opportunities lie. You’ll receive a 
+                    clear 3–6 month growth roadmap, including prioritized action steps, budget guidance, and recommendations on tools, 
+                    systems, and automation. This consultation gives you clarity, direction, and confidence so you can stop guessing 
+                    and start executing with purpose.
+                    </p>
+                </div>
+                <div class="pic">
+                    <img src="Images/797315702b84a056c5c8b3d87dc03a10.jpg" alt="">
+                </div>
+            </div>
+            <div class="consultation-pricing">
+                <p class="price">Consultation Fee: <strong>KES 5,000</strong></p>
+                <p class="duration">Duration: 60 Minutes</p>
+                <p class="note">💡 Fee is credited if you proceed with a project.</p>
+
+                <a href="#booking-form" class="book-btn">Book Consultation</a>
+            </div>
+        </div>
+    </section>
+    <!--paybill-->
+    <section class="payment-info">
+        <h3>Secure Your Booking</h3>
+
+        <p>All consultations are confirmed after payment via M-Pesa.</p>
+
+        <p><strong>Paybill Number:</strong>880100</p>
+        <p><strong>Account Number:</strong>378623</p>
+        <p><strong>Account Name:</strong>Brydex Technologies</p>
+        <p><strong>Amount:</strong> KES 3,000 (per session)</p>
+
+        <p class="note">
+            After payment, enter your M-Pesa transaction code below to confirm your booking.
+        </p>
+    </section>
+    <!--booking form-->
+    <section id="booking-form" class="booking-form">
+        <h2>Book Your Consultation</h2>
+
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="text" placeholder="Business Name">
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="email" placeholder="Email Address" required>
+
+            <select required>
+                <option value="">Select Consultation Type</option>
+                <option>Website Audit</option>
+                <option>Website Planning</option>
+                <option>Conversion Consultation</option>
+                <option>Google Ads Strategy</option>
+                <option>E-commerce Consultation</option>
+                <option>Digital Growth Roadmap</option>
+            </select>
+
+            <input type="text" placeholder="M-Pesa Transaction Code" required>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </section>
+    <div class="legal-consent">
+        <p>
+            By booking, you agree to our 
+            <a href="terms_conditions.html">Terms & Conditions</a>, 
+            <a href="privacy_policies.html">Privacy Policy</a>, 
+            and 
+            <a href="refund_policies.html">Refund Policy</a>.
+        </p>
+    </div>
+    <!--footer section-->
+    <footer>
+            <div class="footer-col">
+                <h2>About us</h2>
+                <p>Brydex Technologies – Your All-in-One Digital Solutions Partner We design and develop 
+                    websites, apps, and custom systems, manage social media, build strong brand identities, 
+                    and offer strategic digital consultations all to help your business grow, engage, and 
+                    convert online.</p>
+            </div>
+            <div class="footer-col">
+                <h2>Quick Links</h2>
+                <ul class="list">
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="terms_conditions.html">Term & Condition</a></li>
+                    <li><a href="privacy_policies.html">Privacy Policy</a></li>
+                    <li><a href="refund_policies.html">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h2>Follow Us</h2>
+                <div class="social-icons">
+                    <li><a href="https://www.facebook.com/brydextechnologies"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/brydex-technologies-3aa4773bb/"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.tiktok.com/@brydex.technologies" class="social-link"><i class="fa-brands fa-tiktok"></i></a></li>
+                    <li><a href="https://www.instagram.com/brydextechnologies/" class="social-link"><i class="fa-brands fa-instagram"></i></a></li>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h2>Contact Us</h2>
+                <p>Email: info@brydextechnologies.co.ke</p>
+                <p>Phone: +254(0)700 073919</p>
+                <p>Address: Nairobi, Kenya 00100</p>
+            </div>
+            <div class="bottom-bar">
+                <p>&copy;2026 Brydex Technologies . All rights reserved</p>
+            </div>
+    </footer>
+    <!--crafted-->
+    <section class="bottom-footer">
+        <div class="craft">
+            <p>Crafted @  <a href="https://wa.me/254700073919?text=Hello%20Brydextechnologies!%20I'm%20interested%20in%20your%20services">Brydex Technologies</a></p>
+        </div>
+    </section>
+
+    <script>
+         let menuToggle = document.querySelector('.menuToggle');
+        let header = document.querySelector('header');
+        menuToggle.onclick = function(){
+            header.classList.toggle('active');
+        }
+
+        let calcScrollValue = () => {
+            let scrollProgress = document.getElementById("progress");
+            let progressValue = document.getElementById("progress-value");
+            let pos = document.documentElement.scrollTop;
+            let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrollValue = Math.round((pos * 100)/calcHeight);
+            if (pos > 100) {
+                scrollProgress.style.display = "grid";
+            } else {
+                scrollProgress.style.display = "none";
+            }
+            scrollProgress.addEventListener("click", () => {
+                document.documentElement.scrollTop = 0;
+            });
+            scrollProgress.style.background = `conic-gradient(blue ${scrollValue}%, white ${scrollValue}%)`;
+        };
+
+        window.onscroll = calcScrollValue;
+        window.onload = calcScrollValue;
+
+        // Select all buttons and department containers
+        const deptButtons = document.querySelectorAll('.dept-btn');
+        const deptContainers = document.querySelectorAll('.dept-services');
+
+        deptButtons.forEach(button => {
+        button.addEventListener('click', () => {
+
+            // Remove active class from all buttons
+            deptButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const targetId = button.getAttribute('data-target');
+
+            // Hide all department containers
+            deptContainers.forEach(div => div.style.display = 'none');
+
+            // Show only the targeted department container
+            const targetDiv = document.getElementById(targetId);
+            if (targetDiv) targetDiv.style.display = 'grid';
+        });
+        });
+
+        // Handle direct links with #hash
+        window.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash.replace('#', '');
+
+        if (hash) {
+            const targetService = document.getElementById(hash);
+
+            if (targetService) {
+            const parentDept = targetService.closest('.dept-services');
+
+            if (parentDept) {
+                // Activate correct department
+                deptContainers.forEach(div => div.style.display = 'none');
+                parentDept.style.display = 'grid';
+
+                // Activate correct button
+                deptButtons.forEach(btn => btn.classList.remove('active'));
+                const activeBtn = document.querySelector(
+                `.dept-btn[data-target="${parentDept.id}"]`
+                );
+                if (activeBtn) activeBtn.classList.add('active');
+
+                // Smooth scroll to service
+                setTimeout(() => {
+                targetService.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 200);
+
+                return; // stop default init
+            }
+            }
+        }
+
+        // Default behavior (no hash)
+        const firstButton = document.querySelector('.dept-btn.active') || deptButtons[0];
+        firstButton.click();
+        });
+
+        //WHATSAPP BUTTON
+           const whatsapp = document.querySelector('.whatsapp-float');
+
+            let lastScrollY = window.scrollY;
+            let idleTimer;
+            let visible = false;
+
+            /* 🔹 SCROLL BEHAVIOR */
+            window.addEventListener('scroll', function () {
+                let currentScrollY = window.scrollY;
+
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    // scrolling down
+                    showWhatsApp();
+                } else {
+                    // scrolling up
+                    hideWhatsApp();
+                }
+
+                lastScrollY = currentScrollY;
+
+                resetIdleTimer();
+            });
+
+            /* 🔹 IDLE BEHAVIOR (auto trigger) */
+            function resetIdleTimer() {
+                clearTimeout(idleTimer);
+
+                idleTimer = setTimeout(() => {
+                    showWhatsApp();
+
+                    setTimeout(() => {
+                        hideWhatsApp();
+                    }, 4000);
+
+                }, 5000); // shows after 5s of no activity
+            }
+
+            /* 🔹 SHOW / HIDE FUNCTIONS */
+            function showWhatsApp() {
+                if (!visible) {
+                    whatsapp.classList.add('show');
+                    visible = true;
+                }
+            }
+
+            function hideWhatsApp() {
+                whatsapp.classList.remove('show');
+                visible = false;
+            }
+
+            /* 🔹 INITIAL TRIGGER */
+            resetIdleTimer();
+
+            // HEADER SCROLL EFFECT
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 80) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+    </script>
+</body>
+</html>
